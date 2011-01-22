@@ -1,11 +1,12 @@
 %D \module
 %D   [       file=t-mathsets,
-%D        version=2008-12-06,
+%D        version=2011-01-22,
 %D          title=Math Sets,
 %D       subtitle=\CONTEXT\ port of \filename{braket.sty},
 %D         author={Aditya Mahajan},
 %D          email={adityam [at] umich [dot] edu},
-%D           date=\currentdate]
+%D           date=\currentdate,
+%D        license=Simplified BSD License]
 %D
   
 %M \usemodule[mathsets] 
@@ -369,16 +370,16 @@
 %D \stopitemize
 
 \def\docapturemathoplimits#1%
-  {\doifnextcharelse_%
+  {\doifnextcharelse _%
     {\dodocapturemathoplimits{#1}}
-    {\doifnextcharelse^%
+    {\doifnextcharelse ^%
       {\dodocapturemathoplimits{#1}}
       {#1{}}}}
 
 \def\dodocapturemathoplimits#1#2#3%
-  {\doifnextcharelse_%
+  {\doifnextcharelse _%
     {\redocapturemathoplimits{#1}{#2}{#3}}
-    {\doifnextcharelse^%
+    {\doifnextcharelse ^%
         {\redocapturemathoplimits{#1}{#2}{#3}}
         {#1{#2{#3}}}}}
 
@@ -396,6 +397,11 @@
 %D \section Change log
 %D
 %D \startitemize[n, reverse][headstyle=bold]
+%D
+%D \head \date[d=22,m=1,y=2011]
+%D
+%D In MkIV, protected catcodes make _ and ^ letters. Slight modification so that 
+%D the module works with MkIV.
 %D
 %D \head \date[d=6,m=12,y=2008]
 %D
